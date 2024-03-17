@@ -48,6 +48,7 @@ public class CacheConfiguration {
             createCache(cm, com.thrinod.domain.User.class.getName() + ".authorities");
             createCache(cm, com.thrinod.domain.PersistentToken.class.getName());
             createCache(cm, com.thrinod.domain.User.class.getName() + ".persistentTokens");
+            createCache(cm, com.thrinod.domain.TICK.class.getName());
             // jhipster-needle-caffeine-add-entry
         };
     }

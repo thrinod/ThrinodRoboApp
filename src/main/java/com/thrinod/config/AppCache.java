@@ -8,4 +8,12 @@ import org.springframework.stereotype.Component;
 public class AppCache {
 
     private String accToken;
+
+    public void setAccToken(String accToken) {
+        this.accToken = accToken;
+    }
+
+    public String getAccToken() {
+        return accToken;
+    }
 }

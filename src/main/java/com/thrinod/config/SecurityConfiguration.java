@@ -7,8 +7,6 @@ import com.thrinod.security.*;
 import com.thrinod.web.filter.SpaWebFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
-import org.springframework.core.env.Profiles;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,7 +24,6 @@ import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWrite
 import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
 import org.springframework.security.web.util.matcher.OrRequestMatcher;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
-import tech.jhipster.config.JHipsterConstants;
 import tech.jhipster.config.JHipsterProperties;
 import tech.jhipster.web.filter.CookieCsrfFilter;
 
@@ -34,14 +31,11 @@ import tech.jhipster.web.filter.CookieCsrfFilter;
 @EnableMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration {
 
-    private final Environment env;
-
     private final JHipsterProperties jHipsterProperties;
 
     private final RememberMeServices rememberMeServices;
 
-    public SecurityConfiguration(Environment env, RememberMeServices rememberMeServices, JHipsterProperties jHipsterProperties) {
-        this.env = env;
+    public SecurityConfiguration(RememberMeServices rememberMeServices, JHipsterProperties jHipsterProperties) {
         this.rememberMeServices = rememberMeServices;
         this.jHipsterProperties = jHipsterProperties;
     }
@@ -120,11 +114,6 @@ public class SecurityConfiguration {
             .logout(logout ->
                 logout.logoutUrl("/api/logout").logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler()).permitAll()
             );
-        if (env.acceptsProfiles(Profiles.of(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT))) {
-            http
-                .csrf(csrf -> csrf.ignoringRequestMatchers(antMatcher("/h2-console/**")))
-                .authorizeHttpRequests(authz -> authz.requestMatchers(antMatcher("/h2-console/**")).permitAll());
-        }
         return http.build();
     }
 

@@ -34,8 +34,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/ThrinodRoboApp
-    username: ThrinodRoboApp
-    password:
+    username: postgres
+    password: thrinod
     hikari:
       poolName: Hikari
       auto-commit: false

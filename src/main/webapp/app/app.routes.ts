@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'ThrinodRoboApp',
+    title: 'home.title',
   },
   {
     path: '',

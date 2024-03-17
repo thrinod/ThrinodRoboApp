@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (tICK) {
+      <div>
+        <h2 data-cy="tICKDetailsHeading"><span>TICK</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>ID</span></dt>
+          <dd>
+            <span>{{ tICK.id }}</span>
+          </dd>
+          <dt><span>Instrument Key</span></dt>
+          <dd>
+            <span>{{ tICK.instrumentKey }}</span>
+          </dd>
+          <dt><span>Exchange Token</span></dt>
+          <dd>
+            <span>{{ tICK.exchangeToken }}</span>
+          </dd>
+          <dt><span>Trading Symbol</span></dt>
+          <dd>
+            <span>{{ tICK.tradingSymbol }}</span>
+          </dd>
+          <dt><span>Name</span></dt>
+          <dd>
+            <span>{{ tICK.name }}</span>
+          </dd>
+          <dt><span>Last Price</span></dt>
+          <dd>
+            <span>{{ tICK.lastPrice }}</span>
+          </dd>
+          <dt><span>Expiry</span></dt>
+          <dd>
+            <span>{{ tICK.expiry }}</span>
+          </dd>
+          <dt><span>Strike</span></dt>
+          <dd>
+            <span>{{ tICK.strike }}</span>
+          </dd>
+          <dt><span>Tick Size</span></dt>
+          <dd>
+            <span>{{ tICK.tickSize }}</span>
+          </dd>
+          <dt><span>Lot Size</span></dt>
+          <dd>
+            <span>{{ tICK.lotSize }}</span>
+          </dd>
+          <dt><span>Instrument Type</span></dt>
+          <dd>
+            <span>{{ tICK.instrumentType }}</span>
+          </dd>
+          <dt><span>Option Type</span></dt>
+          <dd>
+            <span>{{ tICK.optionType }}</span>
+          </dd>
+          <dt><span>Exchange</span></dt>
+          <dd>
+            <span>{{ tICK.exchange }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/tick', tICK.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

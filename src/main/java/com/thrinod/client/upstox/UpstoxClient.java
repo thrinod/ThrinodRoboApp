@@ -1,6 +1,6 @@
 package com.thrinod.client.upstox;
 
-import com.thrinod.robo.config.AppCache;
+import com.thrinod.config.AppCache;
 import com.upstox.ApiClient;
 import com.upstox.ApiException;
 import com.upstox.Configuration;
