@@ -1,0 +1,129 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tick-option-heading" data-cy="TickOptionCreateUpdateHeading">Create or edit a Tick Option</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_instrumentKey">Instrument Key</label>
+          <input
+            type="text"
+            class="form-control"
+            name="instrumentKey"
+            id="field_instrumentKey"
+            data-cy="instrumentKey"
+            formControlName="instrumentKey"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_exchangeToken">Exchange Token</label>
+          <input
+            type="text"
+            class="form-control"
+            name="exchangeToken"
+            id="field_exchangeToken"
+            data-cy="exchangeToken"
+            formControlName="exchangeToken"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_tradingSymbol">Trading Symbol</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tradingSymbol"
+            id="field_tradingSymbol"
+            data-cy="tradingSymbol"
+            formControlName="tradingSymbol"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_lastPrice">Last Price</label>
+          <input type="text" class="form-control" name="lastPrice" id="field_lastPrice" data-cy="lastPrice" formControlName="lastPrice" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_expiry">Expiry</label>
+          <input type="text" class="form-control" name="expiry" id="field_expiry" data-cy="expiry" formControlName="expiry" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_strike">Strike</label>
+          <input type="text" class="form-control" name="strike" id="field_strike" data-cy="strike" formControlName="strike" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_tickSize">Tick Size</label>
+          <input type="text" class="form-control" name="tickSize" id="field_tickSize" data-cy="tickSize" formControlName="tickSize" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_lotSize">Lot Size</label>
+          <input type="text" class="form-control" name="lotSize" id="field_lotSize" data-cy="lotSize" formControlName="lotSize" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_instrumentType">Instrument Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="instrumentType"
+            id="field_instrumentType"
+            data-cy="instrumentType"
+            formControlName="instrumentType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_optionType">Option Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="optionType"
+            id="field_optionType"
+            data-cy="optionType"
+            formControlName="optionType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_exchange">Exchange</label>
+          <input type="text" class="form-control" name="exchange" id="field_exchange" data-cy="exchange" formControlName="exchange" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

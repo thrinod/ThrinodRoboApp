@@ -12,6 +12,68 @@ entity TICK{
     optionType String
     exchange String
 }
+entity TickOption{
+    instrumentKey String
+    exchangeToken String
+    tradingSymbol String
+    name String
+    lastPrice String
+    expiry String
+    strike String
+    tickSize String
+    lotSize String
+    instrumentType String
+    optionType String
+    exchange String
+}
 
-paginate TICK with pagination
+
+entity TickFutures{
+    instrumentKey String
+    exchangeToken String
+    tradingSymbol String
+    name String
+    lastPrice String
+    expiry String
+    strike String
+    tickSize String
+    lotSize String
+    instrumentType String
+    optionType String
+    exchange String
+}
+
+entity TickIndex{
+    instrumentKey String
+    exchangeToken String
+    tradingSymbol String
+    name String
+    lastPrice String
+    expiry String
+    strike String
+    tickSize String
+    lotSize String
+    instrumentType String
+    optionType String
+    exchange String
+}
+
+entity TickStock{
+    instrumentKey String
+    exchangeToken String
+    tradingSymbol String
+    name String
+    lastPrice String
+    expiry String
+    strike String
+    tickSize String
+    lotSize String
+    instrumentType String
+    optionType String
+    exchange String
+}
+
+
+
+paginate TICK, TickStock, TickFutures, TickOption, TickIndex with pagination
 service all with serviceImpl

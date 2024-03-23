@@ -368,14 +368,12 @@ class TICKResourceIT {
         partialUpdatedTICK.setId(tICK.getId());
 
         partialUpdatedTICK
-            .instrumentKey(UPDATED_INSTRUMENT_KEY)
             .exchangeToken(UPDATED_EXCHANGE_TOKEN)
-            .tradingSymbol(UPDATED_TRADING_SYMBOL)
-            .lastPrice(UPDATED_LAST_PRICE)
-            .expiry(UPDATED_EXPIRY)
-            .strike(UPDATED_STRIKE)
+            .name(UPDATED_NAME)
             .tickSize(UPDATED_TICK_SIZE)
             .lotSize(UPDATED_LOT_SIZE)
+            .instrumentType(UPDATED_INSTRUMENT_TYPE)
+            .optionType(UPDATED_OPTION_TYPE)
             .exchange(UPDATED_EXCHANGE);
 
         restTICKMockMvc
@@ -391,17 +389,17 @@ class TICKResourceIT {
         List<TICK> tICKList = tICKRepository.findAll();
         assertThat(tICKList).hasSize(databaseSizeBeforeUpdate);
         TICK testTICK = tICKList.get(tICKList.size() - 1);
-        assertThat(testTICK.getInstrumentKey()).isEqualTo(UPDATED_INSTRUMENT_KEY);
+        assertThat(testTICK.getInstrumentKey()).isEqualTo(DEFAULT_INSTRUMENT_KEY);
         assertThat(testTICK.getExchangeToken()).isEqualTo(UPDATED_EXCHANGE_TOKEN);
-        assertThat(testTICK.getTradingSymbol()).isEqualTo(UPDATED_TRADING_SYMBOL);
-        assertThat(testTICK.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testTICK.getLastPrice()).isEqualTo(UPDATED_LAST_PRICE);
-        assertThat(testTICK.getExpiry()).isEqualTo(UPDATED_EXPIRY);
-        assertThat(testTICK.getStrike()).isEqualTo(UPDATED_STRIKE);
+        assertThat(testTICK.getTradingSymbol()).isEqualTo(DEFAULT_TRADING_SYMBOL);
+        assertThat(testTICK.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testTICK.getLastPrice()).isEqualTo(DEFAULT_LAST_PRICE);
+        assertThat(testTICK.getExpiry()).isEqualTo(DEFAULT_EXPIRY);
+        assertThat(testTICK.getStrike()).isEqualTo(DEFAULT_STRIKE);
         assertThat(testTICK.getTickSize()).isEqualTo(UPDATED_TICK_SIZE);
         assertThat(testTICK.getLotSize()).isEqualTo(UPDATED_LOT_SIZE);
-        assertThat(testTICK.getInstrumentType()).isEqualTo(DEFAULT_INSTRUMENT_TYPE);
-        assertThat(testTICK.getOptionType()).isEqualTo(DEFAULT_OPTION_TYPE);
+        assertThat(testTICK.getInstrumentType()).isEqualTo(UPDATED_INSTRUMENT_TYPE);
+        assertThat(testTICK.getOptionType()).isEqualTo(UPDATED_OPTION_TYPE);
         assertThat(testTICK.getExchange()).isEqualTo(UPDATED_EXCHANGE);
     }
 

@@ -1,0 +1,62 @@
+{
+  "annotations": {
+    "changelogDate": "20240315134524"
+  },
+  "applications": "*",
+  "entityTableName": "tick_option",
+  "fields": [
+    {
+      "fieldName": "instrumentKey",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "exchangeToken",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradingSymbol",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastPrice",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expiry",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "strike",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tickSize",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lotSize",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instrumentType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "optionType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "exchange",
+      "fieldType": "String"
+    }
+  ],
+  "name": "TickOption",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

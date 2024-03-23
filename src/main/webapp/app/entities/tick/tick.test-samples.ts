@@ -1,31 +1,32 @@
 import { ITICK, NewTICK } from './tick.model';
 
 export const sampleWithRequiredData: ITICK = {
-  id: 12452,
+  id: 30802,
 };
 
 export const sampleWithPartialData: ITICK = {
-  id: 2445,
-  instrumentKey: 'late lover so',
-  lastPrice: 'till',
-  instrumentType: 'why properly',
-  exchange: 'bleak derivative',
+  id: 2162,
+  tradingSymbol: 'except amongst geez',
+  expiry: 'above pro',
+  tickSize: 'now how fully',
+  instrumentType: 'silver',
+  exchange: 'valuable onto',
 };
 
 export const sampleWithFullData: ITICK = {
-  id: 11833,
-  instrumentKey: 'methodology regarding or',
-  exchangeToken: 'friendly submissive',
-  tradingSymbol: 'officially hierarchy ouch',
-  name: 'corrupt beautifully',
-  lastPrice: 'resource irritably',
-  expiry: 'delegate kindheartedly',
-  strike: 'miserably transgress cat',
-  tickSize: 'whose',
-  lotSize: 'ew finally spring',
-  instrumentType: 'wobbly',
-  optionType: 'content as',
-  exchange: 'boohoo including',
+  id: 12256,
+  instrumentKey: 'phew',
+  exchangeToken: 'banner submissive',
+  tradingSymbol: 'because',
+  name: 'readily miserably admired',
+  lastPrice: 'slushy aftermath closely',
+  expiry: 'naturalisation yahoo instead',
+  strike: 'yahoo spice',
+  tickSize: 'provided shyly hm',
+  lotSize: 'hidden phooey gah',
+  instrumentType: 'onto or',
+  optionType: 'outline',
+  exchange: 'that motor lasting',
 };
 
 export const sampleWithNewData: NewTICK = {

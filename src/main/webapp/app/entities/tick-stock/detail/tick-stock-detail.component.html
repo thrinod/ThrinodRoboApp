@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (tickStock) {
+      <div>
+        <h2 data-cy="tickStockDetailsHeading"><span>Tick Stock</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>ID</span></dt>
+          <dd>
+            <span>{{ tickStock.id }}</span>
+          </dd>
+          <dt><span>Instrument Key</span></dt>
+          <dd>
+            <span>{{ tickStock.instrumentKey }}</span>
+          </dd>
+          <dt><span>Exchange Token</span></dt>
+          <dd>
+            <span>{{ tickStock.exchangeToken }}</span>
+          </dd>
+          <dt><span>Trading Symbol</span></dt>
+          <dd>
+            <span>{{ tickStock.tradingSymbol }}</span>
+          </dd>
+          <dt><span>Name</span></dt>
+          <dd>
+            <span>{{ tickStock.name }}</span>
+          </dd>
+          <dt><span>Last Price</span></dt>
+          <dd>
+            <span>{{ tickStock.lastPrice }}</span>
+          </dd>
+          <dt><span>Expiry</span></dt>
+          <dd>
+            <span>{{ tickStock.expiry }}</span>
+          </dd>
+          <dt><span>Strike</span></dt>
+          <dd>
+            <span>{{ tickStock.strike }}</span>
+          </dd>
+          <dt><span>Tick Size</span></dt>
+          <dd>
+            <span>{{ tickStock.tickSize }}</span>
+          </dd>
+          <dt><span>Lot Size</span></dt>
+          <dd>
+            <span>{{ tickStock.lotSize }}</span>
+          </dd>
+          <dt><span>Instrument Type</span></dt>
+          <dd>
+            <span>{{ tickStock.instrumentType }}</span>
+          </dd>
+          <dt><span>Option Type</span></dt>
+          <dd>
+            <span>{{ tickStock.optionType }}</span>
+          </dd>
+          <dt><span>Exchange</span></dt>
+          <dd>
+            <span>{{ tickStock.exchange }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/tick-stock', tickStock.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

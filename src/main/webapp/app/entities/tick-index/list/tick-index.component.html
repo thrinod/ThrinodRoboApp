@@ -1,0 +1,193 @@
+<div>
+  <h2 id="page-heading" data-cy="TickIndexHeading">
+    <span>Tick Indices</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tick-index"
+        [routerLink]="['/tick-index/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span>Create a new Tick Index</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (tickIndices?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span>No Tick Indices found</span>
+    </div>
+  }
+
+  @if (tickIndices && tickIndices.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span>ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="instrumentKey">
+              <div class="d-flex">
+                <span>Instrument Key</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="exchangeToken">
+              <div class="d-flex">
+                <span>Exchange Token</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradingSymbol">
+              <div class="d-flex">
+                <span>Trading Symbol</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="name">
+              <div class="d-flex">
+                <span>Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastPrice">
+              <div class="d-flex">
+                <span>Last Price</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="expiry">
+              <div class="d-flex">
+                <span>Expiry</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="strike">
+              <div class="d-flex">
+                <span>Strike</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tickSize">
+              <div class="d-flex">
+                <span>Tick Size</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lotSize">
+              <div class="d-flex">
+                <span>Lot Size</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="instrumentType">
+              <div class="d-flex">
+                <span>Instrument Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="optionType">
+              <div class="d-flex">
+                <span>Option Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="exchange">
+              <div class="d-flex">
+                <span>Exchange</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (tickIndex of tickIndices; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/tick-index', tickIndex.id, 'view']">{{ tickIndex.id }}</a>
+              </td>
+              <td>{{ tickIndex.instrumentKey }}</td>
+              <td>{{ tickIndex.exchangeToken }}</td>
+              <td>{{ tickIndex.tradingSymbol }}</td>
+              <td>{{ tickIndex.name }}</td>
+              <td>{{ tickIndex.lastPrice }}</td>
+              <td>{{ tickIndex.expiry }}</td>
+              <td>{{ tickIndex.strike }}</td>
+              <td>{{ tickIndex.tickSize }}</td>
+              <td>{{ tickIndex.lotSize }}</td>
+              <td>{{ tickIndex.instrumentType }}</td>
+              <td>{{ tickIndex.optionType }}</td>
+              <td>{{ tickIndex.exchange }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/tick-index', tickIndex.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline">View</span>
+                  </a>
+
+                  <a [routerLink]="['/tick-index', tickIndex.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(tickIndex)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (tickIndices && tickIndices.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>
